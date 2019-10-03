@@ -10,7 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        VStack(alignment: .leading) {
+            ForEach((1...10).reversed(), id: \.self) {
+                Text("\($0)…")
+            }
+
+            Text("Ready or not, here I come!")
+        }
     }
 }
 
