@@ -8,19 +8,14 @@
 
 import SwiftUI
 
-struct Result: Identifiable {
-    var id = UUID()
-    var score: Int
-}
-
 struct ContentView: View {
-    let results = [Result(score: 8), Result(score: 5), Result(score: 10)]
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
 
     var body: some View {
-        VStack {
-            ForEach(results) { result in
-                Text("Result: \(result.score)")
-            }
+        if horizontalSizeClass == .compact {
+            return Text("Compact")
+        } else {
+            return Text("Regular")
         }
     }
 }
